@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface VehicleMapper {
-    
+
     @Mapping(source = "passengerCapacity", target = "passengerCapacity")
     @Mapping(source = "rangeKm", target = "rangeKm")
     @Mapping(source = "fuelType", target = "fuelType")
