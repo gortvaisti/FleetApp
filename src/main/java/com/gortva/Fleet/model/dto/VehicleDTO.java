@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Positive;
 import java.util.Objects;
 
 public class VehicleDTO {
-    private Long id;  // 🚨 Ez legyen benne!
+    private Long id;
 
     @NotNull(message = "Passenger capacity is required")
     @Min(value = 1, message = "Passenger capacity must be at least 1")

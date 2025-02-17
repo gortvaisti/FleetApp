@@ -3,7 +3,6 @@ package com.gortva.Fleet.model.dao;
 import com.gortva.Fleet.model.enums.FuelType;
 import jakarta.persistence.*;
 
-
 @Entity
 @Table(name = "vehicles")
 public class Vehicle {
@@ -21,19 +20,17 @@ public class Vehicle {
     @Enumerated(EnumType.STRING)
     @Column(name = "fuel_type", nullable = false)
     private FuelType fuelType;
-
-    // 📌 Üres konstruktor szükséges a JPA számára
+    
     public Vehicle() {
     }
 
-    // 📌 Konstruktor az összes mező inicializálására
+
     public Vehicle(int passengerCapacity, int rangeKm, FuelType fuelType) {
         this.passengerCapacity = passengerCapacity;
         this.rangeKm = rangeKm;
         this.fuelType = fuelType;
     }
 
-    // 📌 Getterek
     public Long getId() {
         return id;
     }
@@ -50,11 +47,11 @@ public class Vehicle {
         return fuelType;
     }
 
-    // 📌 Setterek
-
+    // Setterek
     public void setId(Long id) {
         this.id = id;
     }
+
     public void setPassengerCapacity(int passengerCapacity) {
         this.passengerCapacity = passengerCapacity;
     }
@@ -67,7 +64,6 @@ public class Vehicle {
         this.fuelType = fuelType;
     }
 
-    // 📌 toString() metódus
     @Override
     public String toString() {
         return "Vehicle{" +
@@ -78,7 +74,6 @@ public class Vehicle {
                 '}';
     }
 
-    // 📌 equals() és hashCode() az objektumok összehasonlításához
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,3 +90,4 @@ public class Vehicle {
         return java.util.Objects.hash(id, passengerCapacity, rangeKm, fuelType);
     }
 }
+
