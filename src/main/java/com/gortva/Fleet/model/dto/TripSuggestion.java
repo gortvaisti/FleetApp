@@ -1,5 +1,10 @@
 package com.gortva.Fleet.model.dto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
+
 
 public class TripSuggestion {
 

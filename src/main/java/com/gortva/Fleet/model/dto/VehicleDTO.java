@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Positive;
 import java.util.Objects;
 
 public class VehicleDTO {
+    private Long id;  // 🚨 Ez legyen benne!
 
     @NotNull(message = "Passenger capacity is required")
     @Min(value = 1, message = "Passenger capacity must be at least 1")
@@ -20,17 +21,15 @@ public class VehicleDTO {
     @NotNull(message = "Fuel type is required")
     private FuelType fuelType;
 
-    // No-args constructor
-    public VehicleDTO() {}
-
-    // All-args constructor
-    public VehicleDTO(Integer passengerCapacity, Integer rangeKm, FuelType fuelType) {
-        this.passengerCapacity = passengerCapacity;
-        this.rangeKm = rangeKm;
-        this.fuelType = fuelType;
+    // 📌 Getterek és setterek
+    public Long getId() {
+        return id;
     }
 
-    // Getters and Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Integer getPassengerCapacity() {
         return passengerCapacity;
     }

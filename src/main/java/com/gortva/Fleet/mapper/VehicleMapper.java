@@ -10,15 +10,16 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface VehicleMapper {
 
-    @Mapping(source = "passengerCapacity", target = "passengerCapacity")
-    @Mapping(source = "rangeKm", target = "rangeKm")
-    @Mapping(source = "fuelType", target = "fuelType")
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "passengerCapacity", source = "passengerCapacity")
+    @Mapping(target = "rangeKm", source = "rangeKm")
+    @Mapping(target = "fuelType", source = "fuelType")
     VehicleDTO vehicleToDTO(Vehicle vehicle);
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(source = "passengerCapacity", target = "passengerCapacity")
-    @Mapping(source = "rangeKm", target = "rangeKm")
-    @Mapping(source = "fuelType", target = "fuelType")
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "passengerCapacity", source = "passengerCapacity")
+    @Mapping(target = "rangeKm", source = "rangeKm")
+    @Mapping(target = "fuelType", source = "fuelType")
     Vehicle dtoToVehicle(VehicleDTO vehicleDTO);
 
     List<VehicleDTO> toDTOList(List<Vehicle> vehicles);
