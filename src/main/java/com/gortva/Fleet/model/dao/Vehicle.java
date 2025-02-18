@@ -20,10 +20,9 @@ public class Vehicle {
     @Enumerated(EnumType.STRING)
     @Column(name = "fuel_type", nullable = false)
     private FuelType fuelType;
-    
+
     public Vehicle() {
     }
-
 
     public Vehicle(int passengerCapacity, int rangeKm, FuelType fuelType) {
         this.passengerCapacity = passengerCapacity;
@@ -47,7 +46,6 @@ public class Vehicle {
         return fuelType;
     }
 
-    // Setterek
     public void setId(Long id) {
         this.id = id;
     }

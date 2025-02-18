@@ -11,8 +11,9 @@ public class OpenAPIConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("Fleet API")
-                        .version("1.0")
-                        .description("API dokumentáció"));
+                .info(new Info()
+                        .title("Fleet Management API")
+                        .description("REST API for managing fleet vehicles and trip planning.")
+                );
     }
 }

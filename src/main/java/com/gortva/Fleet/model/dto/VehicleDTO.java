@@ -1,5 +1,4 @@
 package com.gortva.Fleet.model.dto;
-
 import com.gortva.Fleet.model.enums.FuelType;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -21,7 +20,6 @@ public class VehicleDTO {
     @NotNull(message = "Fuel type is required")
     private FuelType fuelType;
 
-    // 📌 Getterek és setterek
     public Long getId() {
         return id;
     }
@@ -54,29 +52,25 @@ public class VehicleDTO {
         this.fuelType = fuelType;
     }
 
-    // toString()
-    @Override
-    public String toString() {
-        return "VehicleDTO{" +
-                "passengerCapacity=" + passengerCapacity +
-                ", rangeKm=" + rangeKm +
-                ", fuelType=" + fuelType +
-                '}';
-    }
-
-    // equals and hashCode (Optional)
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        VehicleDTO that = (VehicleDTO) o;
-        return Objects.equals(passengerCapacity, that.passengerCapacity) &&
-                Objects.equals(rangeKm, that.rangeKm) &&
-                fuelType == that.fuelType;
+        if (!(o instanceof VehicleDTO that)) return false;
+        return Objects.equals(id, that.id) && Objects.equals(passengerCapacity, that.passengerCapacity) && Objects.equals(rangeKm, that.rangeKm) && fuelType == that.fuelType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(passengerCapacity, rangeKm, fuelType);
+        return Objects.hash(id, passengerCapacity, rangeKm, fuelType);
+    }
+
+    @Override
+    public String toString() {
+        return "VehicleDTO{" +
+                "id=" + id +
+                ", passengerCapacity=" + passengerCapacity +
+                ", rangeKm=" + rangeKm +
+                ", fuelType=" + fuelType +
+                '}';
     }
 }
