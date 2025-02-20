@@ -3,7 +3,7 @@ package com.gortva.Fleet.model.dto;
 import java.util.Objects;
 
 
-public class TripSuggestion {
+public class TripSuggestionDTO {
 
     private VehicleDTO vehicle;
     private int vehiclesNeeded;
@@ -12,10 +12,10 @@ public class TripSuggestion {
     private double profit;
 
     // No-args constructor
-    public TripSuggestion() {}
+    public TripSuggestionDTO() {}
 
     // All-args constructor
-    public TripSuggestion(VehicleDTO vehicle, int vehiclesNeeded, double travelFee, double refuelCost, double profit) {
+    public TripSuggestionDTO(VehicleDTO vehicle, int vehiclesNeeded, double travelFee, double refuelCost, double profit) {
         this.vehicle = vehicle;
         this.vehiclesNeeded = vehiclesNeeded;
         this.travelFee = travelFee;
@@ -81,7 +81,7 @@ public class TripSuggestion {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TripSuggestion that = (TripSuggestion) o;
+        TripSuggestionDTO that = (TripSuggestionDTO) o;
         return vehiclesNeeded == that.vehiclesNeeded &&
                 Double.compare(that.travelFee, travelFee) == 0 &&
                 Double.compare(that.refuelCost, refuelCost) == 0 &&

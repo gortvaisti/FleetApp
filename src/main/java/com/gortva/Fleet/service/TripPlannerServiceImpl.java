@@ -3,7 +3,7 @@ package com.gortva.Fleet.service;
 
 import com.gortva.Fleet.mapper.VehicleMapper;
 import com.gortva.Fleet.model.dao.Vehicle;
-import com.gortva.Fleet.model.dto.TripSuggestion;
+import com.gortva.Fleet.model.dto.TripSuggestionDTO;
 import com.gortva.Fleet.model.dto.VehicleDTO;
 import com.gortva.Fleet.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +25,10 @@ public class TripPlannerServiceImpl implements TripPlannerService {
     }
 
     @Override
-    public List<TripSuggestion> findBestVehiclesForTrip(int passengers, int distance) {
+    public List<TripSuggestionDTO> findBestVehiclesForTrip(int passengers, int distance) {
         List<Vehicle> availableVehicles = vehicleRepository.findByRangeKmGreaterThanEqual(distance);
         List<VehicleDTO> availableVehicleDTOs = vehicleMapper.toDTOList(availableVehicles);
-        List<TripSuggestion> suggestions = new ArrayList<>();
+        List<TripSuggestionDTO> suggestions = new ArrayList<>();
 
         for (VehicleDTO vehicleDTO : availableVehicleDTOs) {
             int vehiclesNeeded = (int) Math.ceil((double) passengers / vehicleDTO.getPassengerCapacity());
@@ -36,7 +36,7 @@ public class TripPlannerServiceImpl implements TripPlannerService {
             double refuelCost = calculateRefuelCost(vehicleDTO, distance, vehiclesNeeded);
             double profit = travelFee - refuelCost;
 
-            suggestions.add(new TripSuggestion(vehicleDTO, vehiclesNeeded, travelFee, refuelCost, profit));
+            suggestions.add(new TripSuggestionDTO(vehicleDTO, vehiclesNeeded, travelFee, refuelCost, profit));
         }
 
         return suggestions;

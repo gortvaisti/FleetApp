@@ -1,7 +1,7 @@
 package com.gortva.Fleet.controller;
 
 import com.gortva.Fleet.service.TripPlannerService;
-import com.gortva.Fleet.model.dto.TripSuggestion;
+import com.gortva.Fleet.model.dto.TripSuggestionDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,10 +27,10 @@ public class TripPlannerController {
             description = "Finds the best vehicle options based on the number of passengers and trip distance."
     )
     @GetMapping("/suggestions")
-    public ResponseEntity<List<TripSuggestion>> getTripSuggestions(
+    public ResponseEntity<List<TripSuggestionDTO>> getTripSuggestions(
             @Parameter(description = "Number of passengers for the trip", required = true) @RequestParam int passengers,
             @Parameter(description = "Trip distance in kilometers", required = true) @RequestParam int distance) {
-        List<TripSuggestion> suggestions = tripPlannerService.findBestVehiclesForTrip(passengers, distance);
+        List<TripSuggestionDTO> suggestions = tripPlannerService.findBestVehiclesForTrip(passengers, distance);
         return ResponseEntity.ok(suggestions);
     }
 }

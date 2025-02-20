@@ -1,8 +1,8 @@
 package com.gortva.Fleet.service;
 
-import com.gortva.Fleet.model.dto.TripSuggestion;
+import com.gortva.Fleet.model.dto.TripSuggestionDTO;
 import java.util.List;
 
 public interface TripPlannerService {
-    List<TripSuggestion> findBestVehiclesForTrip(int passengers, int distance);
+    List<TripSuggestionDTO> findBestVehiclesForTrip(int passengers, int distance);
 }
